@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS replenishes (
     replenish_id serial PRIMARY KEY,
     account_id integer NOT NULL REFERENCES accounts ON DELETE CASCADE,
     replenish_amount numeric(2) NOT NULL,
-    replenish_datetime timestamp NOT NULL
+    replenish_datetime timestamp NOT NULL DEFAULT current_timestamp
 );
 -- Вендинговые точки
 CREATE TABLE IF NOT EXISTS vending_points (
