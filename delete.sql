@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS
     -- Удаление ассоциативных сущностей
-    role_authorities,
     user_roles,
     function_variants,
     scan_task_files,
@@ -20,8 +19,7 @@ DROP TABLE IF EXISTS
     accounts,
     files,
     users,
-    roles,
-    authorities
+    roles
     ;
 DROP TYPE IF EXISTS
     user_status_enum,
