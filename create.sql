@@ -26,12 +26,12 @@ CREATE TABLE IF NOT EXISTS  user_roles (
 CREATE TABLE IF NOT EXISTS accounts (
     account_id serial PRIMARY KEY,
     user_id integer NOT NULL REFERENCES users ON DELETE CASCADE,
-    account_balance numeric(2) NOT NULL
+    account_balance numeric NOT NULL
 );
 CREATE TABLE IF NOT EXISTS replenishes (
     replenish_id serial PRIMARY KEY,
     account_id integer NOT NULL REFERENCES accounts ON DELETE CASCADE,
-    replenish_amount numeric(2) NOT NULL,
+    replenish_amount numeric NOT NULL,
     replenish_datetime timestamp NOT NULL DEFAULT current_timestamp
 );
 -- Вендинговые точки
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS vending_point_schedules (
 CREATE TABLE IF NOT EXISTS vending_point_unusual_schedules (
     vending_point_unusual_schedule_id serial PRIMARY KEY,
     vending_point_id integer NOT NULL REFERENCES vending_points ON DELETE CASCADE,
-    vending_point_unusual_schedule_date integer NOT NULL,
+    vending_point_unusual_schedule_date date NOT NULL,
     vending_point_schedule_time_start time NOT NULL,
     vending_point_schedule_time_end time NOT NULL
 );
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS orders (
     order_id serial PRIMARY KEY,
     account_id integer NOT NULL REFERENCES  accounts ON DELETE CASCADE,
     vending_point_id integer NOT NULL REFERENCES vending_points ON DELETE CASCADE,
-    order_amount numeric(2) NOT NULL,
+    order_amount numeric NOT NULL,
     order_datetime timestamp NOT NULL DEFAULT current_timestamp,
     order_type order_type_enum NOT NULL,
     order_status order_status_enum NOT NULL,

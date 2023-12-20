@@ -34,7 +34,7 @@ VALUES
      '18.03.1998',
      default,
      'unverified'),
-    (3,
+    (2,
      'baka@gmail.com',
      'baka',
      '$2a$12$6oDRrrEb1uiON72tjBBfoeJvEeSEV7rJM3ik24s22Ssl44avEB5ZK',
@@ -198,7 +198,7 @@ VALUES
 INSERT INTO machine_files(machine_file_id, machine_id, file_id)
 VALUES
     (0, 0, 0),
-    (1, 2, 1),
-    (2, 2, 2),
-    (3, 3, 3)
+    (1, 1, 1),
+    (2, 1, 2),
+    (3, 2, 3)
     ;
