@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS machines (
 CREATE TYPE function_variant_enum AS enum('black_white_print', 'color_print', 'scan');
 CREATE TABLE IF NOT EXISTS function_variants (
     function_variant_id serial PRIMARY KEY,
+    vending_point_id integer NOT NULL REFERENCES vending_points ON DELETE CASCADE,
     machine_id integer NOT NULL REFERENCES machines ON DELETE CASCADE,
     function_variant function_variant_enum NOT NULL
 );
@@ -87,7 +88,7 @@ CREATE TABLE IF NOT EXISTS machine_supplies (
     machine_supplies_ink_level integer NOT NULL,
     machine_supplies_datetime timestamp NOT NULL DEFAULT current_timestamp
 );
-CREATE TYPE machine_status_enum AS enum();
+CREATE TYPE machine_status_enum AS enum('work', 'temporarily_not_work', 'closed');
 CREATE TABLE IF NOT EXISTS machine_conditions (
     machine_condition_id serial PRIMARY KEY,
     machine_id integer NOT NULL REFERENCES machines ON DELETE CASCADE,
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS orders (
     order_id serial PRIMARY KEY,
     vending_point_id integer NOT NULL REFERENCES vending_points ON DELETE CASCADE,
     order_amount numeric(2) NOT NULL,
-    order_datetime timestamp NOT NULL,
+    order_datetime timestamp NOT NULL DEFAULT current_timestamp,
     order_type order_type_enum NOT NULL,
     order_status order_status_enum NOT NULL,
     order_num integer NOT NULL
