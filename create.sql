@@ -1,10 +1,4 @@
 -- Авторизация/регистрация
-CREATE TABLE IF NOT EXISTS authorities (
-    authority_id serial PRIMARY KEY,
-    authority_name varchar(100) NOT NULL,
-    authority_description varchar(400) NOT NULL,
-    authority_created_datetime timestamp NOT NULL DEFAULT current_timestamp
-);
 CREATE TABLE IF NOT EXISTS roles (
     role_id serial PRIMARY KEY,
     role_name varchar(100) NOT NULL,
@@ -22,12 +16,6 @@ CREATE TABLE IF NOT EXISTS users (
     user_birthday_date date NOT NULL,
     user_created_datetime timestamp NOT NULL DEFAULT current_timestamp,
     user_status user_status_enum NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS role_authorities (
-    role_authority_id serial PRIMARY KEY,
-    role_id integer NOT NULL REFERENCES roles ON DELETE CASCADE,
-    authority_id integer NOT NULL REFERENCES authorities ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS  user_roles (
     user_role_id serial PRIMARY KEY,
