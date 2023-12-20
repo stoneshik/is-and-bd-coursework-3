@@ -48,7 +48,8 @@ INSERT INTO user_roles(user_role_id, user_id, role_id)
 VALUES
     (0, 0, 0),
     (1, 1, 0),
-    (2, 2, 2)
+    (2, 2, 0),
+    (3, 2, 2)
     ;
 -- Счет
 INSERT INTO accounts(account_id, user_id, account_balance)
@@ -123,7 +124,7 @@ VALUES
     (3, 0, 1, 'color_print'),
     (4, 0, 1, 'scan'),
     (5, 1, 2, 'black_white_print'),
-    (5, 1, 2, 'scan')
+    (6, 1, 2, 'scan')
     ;
 INSERT INTO machine_supplies(
     machine_supplies_id,
@@ -143,7 +144,7 @@ VALUES
     (1, 0, 'temporarily_not_work', default),
     (2, 0, 'work', default),
     (3, 1, 'work', default),
-    (0, 2, 'temporarily_not_work', default)
+    (4, 2, 'temporarily_not_work', default)
     ;
 -- Заказы/задания
 INSERT INTO orders(
@@ -156,11 +157,13 @@ INSERT INTO orders(
     order_status,
     order_num)
 VALUES
-    (),
+    (0, 0, 0, 15, default, 'print', 'completed', 112345),
+    (1, 0, 0, 5, default, 'scan', 'paid', 332318),
+    (2, 2, 1, 30, default, 'print', 'completed', 123456)
     ;
 INSERT INTO scan_tasks(scan_task_id, order_id, machine_id, scan_task_number_pages)
 VALUES
-    (),
+    (0, 1, 1, 10)
     ;
 INSERT INTO print_tasks(
     print_task_id,
@@ -171,5 +174,7 @@ INSERT INTO print_tasks(
     print_task_selected_pages,
     print_task_number_copies)
 VALUES
-    (),
+    (0, 0, 0, 'color', false, '{true, false, true, true}', 1),
+    (1, 2, 2, 'black_white', true, NULL, 1),
+    (2, 2, 2, 'black_white', true, NULL, 1)
     ;
