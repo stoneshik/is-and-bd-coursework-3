@@ -23,3 +23,12 @@ DROP TABLE IF EXISTS
     roles,
     authorities
     ;
+DROP TYPE IF EXISTS
+    user_status_enum,
+    day_week_enum,
+    function_variant_enum,
+    machine_status_enum,
+    order_type_enum,
+    order_status_enum,
+    print_task_color_enum
+    ;
