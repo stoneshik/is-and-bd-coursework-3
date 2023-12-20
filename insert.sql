@@ -157,8 +157,8 @@ INSERT INTO orders(
     order_status,
     order_num)
 VALUES
-    (0, 0, 0, 15, default, 'print', 'completed', 112345),
-    (1, 0, 0, 5, default, 'scan', 'paid', 332318),
+    (0, 0, 0, 15, default, 'print', 'paid', 112345),
+    (1, 0, 0, 5, default, 'scan', 'completed', 332318),
     (2, 2, 1, 30, default, 'print', 'completed', 123456)
     ;
 INSERT INTO scan_tasks(scan_task_id, order_id, machine_id, scan_task_number_pages)
@@ -177,4 +177,28 @@ VALUES
     (0, 0, 0, 'color', false, '{true, false, true, true}', 1),
     (1, 2, 2, 'black_white', true, NULL, 1),
     (2, 2, 2, 'black_white', true, NULL, 1)
+    ;
+INSERT INTO files(file_id, user_id, file_name, file_number_pages, file_load_datetime, file_oid)
+VALUES
+    (0, 0, 'first.pdf', 3, default, 0),
+    (1, 2, 'second_order1.pdf', 4, default, 0),
+    (2, 2, 'second_order2.pdf', 2, default, 0),
+    (3, 1, 'scan.pdf', 10, default, 0)
+    ;
+INSERT INTO scan_task_files(scan_task_file_id, scan_task_id, file_id)
+VALUES
+    (0, 0, 3)
+    ;
+INSERT INTO print_task_files(print_task_file_id, print_task_id, file_id)
+VALUES
+    (0, 0, 0),
+    (1, 1, 1),
+    (2, 2, 2)
+    ;
+INSERT INTO machine_files(machine_file_id, machine_id, file_id)
+VALUES
+    (0, 0, 0),
+    (1, 2, 1),
+    (2, 2, 2),
+    (3, 3, 3)
     ;
