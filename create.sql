@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS machine_conditions (
     machine_status machine_status_enum NOT NULL,
     machine_condition_datetime timestamp NOT NULL DEFAULT current_timestamp
 );
--- заказы/задания
+-- Заказы/задания
 CREATE TYPE order_type_enum AS enum('print', 'scan');
 CREATE TYPE order_status_enum AS enum('not_paid', 'paid', 'completed');
 CREATE TABLE IF NOT EXISTS orders (
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS print_tasks (
     print_task_selected_pages boolean[],
     print_task_number_copies int NOT NULL
 );
--- файлы
+-- Файлы
 CREATE TABLE IF NOT EXISTS files (
     file_id serial PRIMARY KEY,
     user_id integer NOT NULL REFERENCES users ON DELETE CASCADE,

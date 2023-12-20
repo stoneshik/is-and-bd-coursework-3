@@ -1,12 +1,12 @@
 DROP TABLE IF EXISTS
-    -- Удаление таблиц ассоциативных сущностей
+    -- Удаление ассоциативных сущностей
     role_authorities,
     user_roles,
     function_variants,
     scan_task_files,
     print_task_files,
     machine_files,
-    -- Осталььные сущности
+    -- Остальные сущности
     scan_tasks,
     print_tasks,
     machine_supplies,
