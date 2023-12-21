@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS roles (
 CREATE TYPE user_status_enum AS enum('unverified', 'verified', 'banned');
 CREATE TABLE IF NOT EXISTS users (
     user_id serial PRIMARY KEY,
-    user_email varchar(200) NOT NULL,
-    user_login varchar(100) NOT NULL,
+    user_email varchar(200) NOT NULL UNIQUE,
+    user_login varchar(100) NOT NULL UNIQUE,
     user_password_hash varchar(200) NOT NULL,
     user_first_name varchar(100) NOT NULL,
     user_second_name varchar(100) NOT NULL,
