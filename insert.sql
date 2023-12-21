@@ -180,10 +180,10 @@ VALUES
     ;
 INSERT INTO files(file_id, user_id, file_name, file_number_pages, file_load_datetime, file_oid)
 VALUES
-    (0, 0, 'first.pdf', 3, default, 0),
-    (1, 2, 'second_order1.pdf', 4, default, 0),
-    (2, 2, 'second_order2.pdf', 2, default, 0),
-    (3, 1, 'scan.pdf', 10, default, 0)
+    (0, 0, 'first.pdf', 3, default, lo_import('/home/bd/first.pdf')),
+    (1, 2, 'second_order1.pdf', 4, default, lo_import('/home/bd/second_order1.pdf')),
+    (2, 2, 'second_order2.pdf', 2, default, lo_import('/home/bd/second_order2.pdf')),
+    (3, 1, 'scan.pdf', 10, default, lo_import('/home/bd/scan.pdf'))
     ;
 INSERT INTO scan_task_files(scan_task_file_id, scan_task_id, file_id)
 VALUES
