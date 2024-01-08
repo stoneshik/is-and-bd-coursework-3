@@ -11,9 +11,6 @@ CREATE TABLE IF NOT EXISTS users (
     user_email varchar(200) NOT NULL UNIQUE,
     user_login varchar(100) NOT NULL UNIQUE,
     user_password_hash varchar(200) NOT NULL,
-    user_first_name varchar(100) NOT NULL,
-    user_second_name varchar(100) NOT NULL,
-    user_birthday_date date NOT NULL,
     user_created_datetime timestamp NOT NULL DEFAULT current_timestamp,
     user_status user_status_enum NOT NULL
 );
