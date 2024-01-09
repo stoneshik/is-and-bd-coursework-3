@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     user_login varchar(100) NOT NULL UNIQUE,
     user_password_hash varchar(200) NOT NULL,
     user_created_datetime timestamp NOT NULL DEFAULT current_timestamp,
-    user_status user_status_enum NOT NULL
+    user_status user_status_enum NOT NULL DEFAULT 'unverified'
 );
 CREATE TABLE IF NOT EXISTS  user_roles (
     user_role_id serial PRIMARY KEY,
