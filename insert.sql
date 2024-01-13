@@ -146,7 +146,7 @@ INSERT INTO orders(
     order_num)
 VALUES
     (0, 0, 0, 15, default, 'print', 'paid', 112345),
-    (1, 0, 0, 5, default, 'scan', 'completed', 332318),
+    (1, 0, 0, 5, default, 'scan', 'not_paid', 332318),
     (2, 2, 1, 30, default, 'print', 'completed', 123456)
     ;
 INSERT INTO scan_tasks(scan_task_id, order_id, machine_id, scan_task_number_pages)
