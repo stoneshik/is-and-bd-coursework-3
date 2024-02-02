@@ -158,20 +158,18 @@ INSERT INTO print_tasks(
     order_id,
     machine_id,
     print_task_color,
-    print_task_is_entire_document,
-    print_task_selected_pages,
     print_task_number_copies)
 VALUES
-    (0, 0, 0, 'color', false, '{true, false, true, true}', 1),
-    (1, 2, 2, 'black_white', true, NULL, 1),
-    (2, 2, 2, 'black_white', true, NULL, 1)
+    (0, 0, 0, 'color', 1),
+    (1, 2, 2, 'black_white', 1),
+    (2, 2, 2, 'black_white', 1)
     ;
-INSERT INTO files(file_id, user_id, file_name, file_number_pages, file_load_datetime, file_oid)
+INSERT INTO files(file_id, user_id, file_name, file_load_datetime, file_oid)
 VALUES
-    (0, 0, 'first.pdf', 3, default, lo_import('/home/bd/first.pdf')),
-    (1, 2, 'second_order1.pdf', 4, default, lo_import('/home/bd/second_order1.pdf')),
-    (2, 2, 'second_order2.pdf', 2, default, lo_import('/home/bd/second_order2.pdf')),
-    (3, 1, 'scan.pdf', 10, default, lo_import('/home/bd/scan.pdf'))
+    (0, 0, 'first.pdf', default, lo_import('/home/bd/first.pdf')),
+    (1, 2, 'second_order1.pdf', default, lo_import('/home/bd/second_order1.pdf')),
+    (2, 2, 'second_order2.pdf', default, lo_import('/home/bd/second_order2.pdf')),
+    (3, 1, 'scan.pdf', default, lo_import('/home/bd/scan.pdf'))
     ;
 INSERT INTO scan_task_files(scan_task_file_id, scan_task_id, file_id)
 VALUES
