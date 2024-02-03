@@ -85,7 +85,7 @@ CREATE TYPE order_type_enum AS enum('print', 'scan');
 CREATE TYPE order_status_enum AS enum('not_paid', 'paid', 'completed');
 CREATE TABLE IF NOT EXISTS orders (
     order_id serial PRIMARY KEY,
-    account_id integer NOT NULL REFERENCES  accounts ON DELETE CASCADE,
+    account_id integer NOT NULL REFERENCES accounts ON DELETE CASCADE,
     vending_point_id integer NOT NULL REFERENCES vending_points ON DELETE CASCADE,
     order_amount numeric NOT NULL,
     order_datetime timestamp NOT NULL DEFAULT current_timestamp,
@@ -105,8 +105,6 @@ CREATE TABLE IF NOT EXISTS print_tasks (
     order_id integer NOT NULL REFERENCES orders ON DELETE CASCADE,
     machine_id integer NOT NULL REFERENCES machines ON DELETE CASCADE,
     print_task_color print_task_color_enum NOT NULL,
-    print_task_is_entire_document boolean NOT NULL,
-    print_task_selected_pages boolean[],
     print_task_number_copies int NOT NULL
 );
 -- Файлы
@@ -114,7 +112,6 @@ CREATE TABLE IF NOT EXISTS files (
     file_id serial PRIMARY KEY,
     user_id integer NOT NULL REFERENCES users ON DELETE CASCADE,
     file_name varchar(200) NOT NULL,
-    file_number_pages integer NOT NULL,
     file_load_datetime timestamp NOT NULL DEFAULT current_timestamp,
     file_oid oid NOT NULL
 );
